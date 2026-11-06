@@ -1,0 +1,69 @@
+# Сгенерировано: python -m quantum_contracts.schema export — не редактировать руками
+asyncapi: 3.0.0
+info:
+  title: QuantumVPN events
+  version: 1.0.0
+  description: События Kafka между микросервисами QuantumVPN. Ключ сообщения — tg_id.
+channels:
+  TrialActivated:
+    address: user.trial-activated
+    messages:
+      TrialActivated:
+        $ref: '#/components/messages/TrialActivated'
+  PaymentSucceeded:
+    address: payment.succeeded
+    messages:
+      PaymentSucceeded:
+        $ref: '#/components/messages/PaymentSucceeded'
+  ExtendAccessRequested:
+    address: provisioning.extend-requested
+    messages:
+      ExtendAccessRequested:
+        $ref: '#/components/messages/ExtendAccessRequested'
+  AccessExtended:
+    address: provisioning.access-extended
+    messages:
+      AccessExtended:
+        $ref: '#/components/messages/AccessExtended'
+  ProvisioningFailed:
+    address: provisioning.failed
+    messages:
+      ProvisioningFailed:
+        $ref: '#/components/messages/ProvisioningFailed'
+  SubscriptionExtended:
+    address: subscription.extended
+    messages:
+      SubscriptionExtended:
+        $ref: '#/components/messages/SubscriptionExtended'
+components:
+  messages:
+    TrialActivated:
+      summary: "user-service: пользователь нажал «Попробовать бесплатно» (ровно один раз)."
+      contentType: application/json
+      payload:
+        $ref: './schemas/user.trial-activated.json'
+    PaymentSucceeded:
+      summary: "payment-service: Telegram подтвердил оплату, платёж сохранён (дубли отсеяны)."
+      contentType: application/json
+      payload:
+        $ref: './schemas/payment.succeeded.json'
+    ExtendAccessRequested:
+      summary: "subscription-service → provisioning-service: продлить доступ в панели на days дней. grant_id уникален для каждого начисления: provisioning-service по нему отсеивает повторы."
+      contentType: application/json
+      payload:
+        $ref: './schemas/provisioning.extend-requested.json'
+    AccessExtended:
+      summary: "provisioning-service: панель продлила доступ, вот актуальные данные подписки."
+      contentType: application/json
+      payload:
+        $ref: './schemas/provisioning.access-extended.json'
+    ProvisioningFailed:
+      summary: "provisioning-service: начисление не удалось. retrying=True — панель недоступна, сервис продолжает попытки (сигнал админу). retrying=False — ошибка постоянная (панель отклонила запрос), начисление отменено."
+      contentType: application/json
+      payload:
+        $ref: './schemas/provisioning.failed.json'
+    SubscriptionExtended:
+      summary: "subscription-service: подписка продлена — уведомить пользователя, обновить напоминания."
+      contentType: application/json
+      payload:
+        $ref: './schemas/subscription.extended.json'

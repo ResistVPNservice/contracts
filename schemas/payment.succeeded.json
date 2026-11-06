@@ -1,0 +1,67 @@
+{
+  "description": "payment-service: Telegram подтвердил оплату, платёж сохранён (дубли отсеяны).",
+  "properties": {
+    "amount": {
+      "title": "Amount",
+      "type": "integer"
+    },
+    "charge_id": {
+      "title": "Charge Id",
+      "type": "string"
+    },
+    "currency": {
+      "title": "Currency",
+      "type": "string"
+    },
+    "days": {
+      "title": "Days",
+      "type": "integer"
+    },
+    "event_id": {
+      "format": "uuid",
+      "title": "Event Id",
+      "type": "string"
+    },
+    "months": {
+      "title": "Months",
+      "type": "integer"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "payment_id": {
+      "title": "Payment Id",
+      "type": "integer"
+    },
+    "tg_id": {
+      "title": "Tg Id",
+      "type": "integer"
+    },
+    "tg_username": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tg Username"
+    }
+  },
+  "required": [
+    "payment_id",
+    "tg_id",
+    "months",
+    "days",
+    "amount",
+    "currency",
+    "charge_id"
+  ],
+  "title": "PaymentSucceeded",
+  "type": "object",
+  "x-topic": "payment.succeeded"
+}

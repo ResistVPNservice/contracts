@@ -1,0 +1,47 @@
+{
+  "description": "subscription-service → provisioning-service: продлить доступ в панели на days дней.\n\ngrant_id уникален для каждого начисления: provisioning-service по нему отсеивает повторы.",
+  "properties": {
+    "days": {
+      "title": "Days",
+      "type": "integer"
+    },
+    "event_id": {
+      "format": "uuid",
+      "title": "Event Id",
+      "type": "string"
+    },
+    "grant_id": {
+      "title": "Grant Id",
+      "type": "string"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "tg_id": {
+      "title": "Tg Id",
+      "type": "integer"
+    },
+    "tg_username": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tg Username"
+    }
+  },
+  "required": [
+    "grant_id",
+    "tg_id",
+    "days"
+  ],
+  "title": "ExtendAccessRequested",
+  "type": "object",
+  "x-topic": "provisioning.extend-requested"
+}

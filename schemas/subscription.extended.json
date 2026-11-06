@@ -1,0 +1,61 @@
+{
+  "description": "subscription-service: подписка продлена — уведомить пользователя, обновить напоминания.",
+  "properties": {
+    "days": {
+      "title": "Days",
+      "type": "integer"
+    },
+    "event_id": {
+      "format": "uuid",
+      "title": "Event Id",
+      "type": "string"
+    },
+    "expire_at": {
+      "format": "date-time",
+      "title": "Expire At",
+      "type": "string"
+    },
+    "grant_id": {
+      "title": "Grant Id",
+      "type": "string"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "short_uuid": {
+      "title": "Short Uuid",
+      "type": "string"
+    },
+    "source": {
+      "enum": [
+        "trial",
+        "payment",
+        "admin"
+      ],
+      "title": "Source",
+      "type": "string"
+    },
+    "subscription_url": {
+      "title": "Subscription Url",
+      "type": "string"
+    },
+    "tg_id": {
+      "title": "Tg Id",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "grant_id",
+    "tg_id",
+    "source",
+    "days",
+    "expire_at",
+    "subscription_url",
+    "short_uuid"
+  ],
+  "title": "SubscriptionExtended",
+  "type": "object",
+  "x-topic": "subscription.extended"
+}

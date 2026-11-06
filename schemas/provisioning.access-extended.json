@@ -1,0 +1,51 @@
+{
+  "description": "provisioning-service: панель продлила доступ, вот актуальные данные подписки.",
+  "properties": {
+    "event_id": {
+      "format": "uuid",
+      "title": "Event Id",
+      "type": "string"
+    },
+    "expire_at": {
+      "format": "date-time",
+      "title": "Expire At",
+      "type": "string"
+    },
+    "grant_id": {
+      "title": "Grant Id",
+      "type": "string"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "rw_username": {
+      "title": "Rw Username",
+      "type": "string"
+    },
+    "short_uuid": {
+      "title": "Short Uuid",
+      "type": "string"
+    },
+    "subscription_url": {
+      "title": "Subscription Url",
+      "type": "string"
+    },
+    "tg_id": {
+      "title": "Tg Id",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "grant_id",
+    "tg_id",
+    "rw_username",
+    "short_uuid",
+    "subscription_url",
+    "expire_at"
+  ],
+  "title": "AccessExtended",
+  "type": "object",
+  "x-topic": "provisioning.access-extended"
+}

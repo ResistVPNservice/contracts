@@ -1,0 +1,40 @@
+{
+  "description": "provisioning-service: начисление не удалось.\n\nretrying=True — панель недоступна, сервис продолжает попытки (сигнал админу).\nretrying=False — ошибка постоянная (панель отклонила запрос), начисление отменено.",
+  "properties": {
+    "error": {
+      "title": "Error",
+      "type": "string"
+    },
+    "event_id": {
+      "format": "uuid",
+      "title": "Event Id",
+      "type": "string"
+    },
+    "grant_id": {
+      "title": "Grant Id",
+      "type": "string"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "retrying": {
+      "title": "Retrying",
+      "type": "boolean"
+    },
+    "tg_id": {
+      "title": "Tg Id",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "grant_id",
+    "tg_id",
+    "error",
+    "retrying"
+  ],
+  "title": "ProvisioningFailed",
+  "type": "object",
+  "x-topic": "provisioning.failed"
+}

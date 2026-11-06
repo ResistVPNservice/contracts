@@ -1,0 +1,42 @@
+{
+  "description": "user-service: пользователь нажал «Попробовать бесплатно» (ровно один раз).",
+  "properties": {
+    "days": {
+      "title": "Days",
+      "type": "integer"
+    },
+    "event_id": {
+      "format": "uuid",
+      "title": "Event Id",
+      "type": "string"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "tg_id": {
+      "title": "Tg Id",
+      "type": "integer"
+    },
+    "tg_username": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tg Username"
+    }
+  },
+  "required": [
+    "tg_id",
+    "days"
+  ],
+  "title": "TrialActivated",
+  "type": "object",
+  "x-topic": "user.trial-activated"
+}
