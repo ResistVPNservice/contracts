@@ -1,6 +1,6 @@
-"""Контракты событий QuantumVPN: единственный источник правды о том, как сервисы общаются через Kafka."""
+"""Контракты событий ResistVPN: единственный источник правды о том, как сервисы общаются через Kafka."""
 
-from quantum_contracts.events import (
+from resist_contracts.events import (
     ALL_EVENTS,
     AccessExtended,
     Event,

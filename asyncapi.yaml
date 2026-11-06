@@ -1,9 +1,9 @@
-# Сгенерировано: python -m quantum_contracts.schema export — не редактировать руками
+# Сгенерировано: python -m resist_contracts.schema export — не редактировать руками
 asyncapi: 3.0.0
 info:
-  title: QuantumVPN events
+  title: ResistVPN events
   version: 1.0.0
-  description: События Kafka между микросервисами QuantumVPN. Ключ сообщения — tg_id.
+  description: События Kafka между микросервисами ResistVPN. Ключ сообщения — tg_id.
 channels:
   TrialActivated:
     address: user.trial-activated

@@ -1,6 +1,6 @@
 # contracts
 
-Контракты событий Kafka между микросервисами QuantumVPN — единственный источник правды о том, как сервисы общаются.
+Контракты событий Kafka между микросервисами ResistVPN — единственный источник правды о том, как сервисы общаются.
 
 | Событие | Топик | Кто пишет | Кто читает |
 |---|---|---|---|
@@ -20,12 +20,12 @@
   Добавлять можно только необязательные поля. Ломающее изменение = новое событие (`…V2`) и мажорная версия пакета.
 
 ```bash
-python -m quantum_contracts.schema export   # после изменения событий — обновить schemas/ и asyncapi.yaml
-python -m quantum_contracts.schema check    # проверка совместимости (запускается в CI)
+python -m resist_contracts.schema export   # после изменения событий — обновить schemas/ и asyncapi.yaml
+python -m resist_contracts.schema check    # проверка совместимости (запускается в CI)
 ```
 
 ## Подключение
 
 ```toml
-dependencies = ["quantum-contracts @ git+https://github.com/ResistVPNservice/contracts.git@v1.0.0"]
+dependencies = ["resist-contracts @ git+https://github.com/ResistVPNservice/contracts.git@v1.0.0"]
 ```

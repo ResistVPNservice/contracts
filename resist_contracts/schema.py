@@ -1,7 +1,7 @@
 """Экспорт контрактов в JSON Schema и AsyncAPI и проверка обратной совместимости.
 
-    python -m quantum_contracts.schema export   # обновить schemas/*.json и asyncapi.yaml
-    python -m quantum_contracts.schema check    # упасть, если изменения ломают старых потребителей
+    python -m resist_contracts.schema export   # обновить schemas/*.json и asyncapi.yaml
+    python -m resist_contracts.schema check    # упасть, если изменения ломают старых потребителей
 
 Правило совместимости (consumer-safe): к событию можно добавлять только необязательные поля.
 Нельзя удалять поле, менять его тип или делать новое поле обязательным — потребители,
@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from quantum_contracts.events import ALL_EVENTS, Event
+from resist_contracts.events import ALL_EVENTS, Event
 
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMAS = ROOT / "schemas"
@@ -27,12 +27,12 @@ def event_schema(cls: type[Event]) -> dict[str, Any]:
 
 def asyncapi() -> str:
     lines = [
-        "# Сгенерировано: python -m quantum_contracts.schema export — не редактировать руками",
+        "# Сгенерировано: python -m resist_contracts.schema export — не редактировать руками",
         "asyncapi: 3.0.0",
         "info:",
-        "  title: QuantumVPN events",
+        "  title: ResistVPN events",
         "  version: 1.0.0",
-        "  description: События Kafka между микросервисами QuantumVPN. Ключ сообщения — tg_id.",
+        "  description: События Kafka между микросервисами ResistVPN. Ключ сообщения — tg_id.",
         "channels:",
     ]
     for cls in ALL_EVENTS:

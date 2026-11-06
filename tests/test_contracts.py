@@ -1,8 +1,8 @@
 import json
 from datetime import UTC, datetime
 
-from quantum_contracts import ALL_EVENTS, PaymentSucceeded, SubscriptionExtended
-from quantum_contracts.schema import SCHEMAS, breaking_changes, check, event_schema
+from resist_contracts import ALL_EVENTS, PaymentSucceeded, SubscriptionExtended
+from resist_contracts.schema import SCHEMAS, breaking_changes, check, event_schema
 
 
 def test_topics_are_unique() -> None:
@@ -25,7 +25,7 @@ def test_roundtrip_json() -> None:
 
 
 def test_committed_schemas_are_current() -> None:
-    """schemas/*.json должны совпадать с кодом — иначе забыли `python -m quantum_contracts.schema export`."""
+    """schemas/*.json должны совпадать с кодом — иначе забыли `python -m resist_contracts.schema export`."""
     for cls in ALL_EVENTS:
         committed = json.loads((SCHEMAS / f"{cls.TOPIC}.json").read_text(encoding="utf-8"))
         assert committed == json.loads(json.dumps(event_schema(cls))), cls.TOPIC
